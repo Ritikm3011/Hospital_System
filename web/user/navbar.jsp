@@ -20,12 +20,12 @@
          
        
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i> 
+          <a class="nav-link dropdown-toggle active " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i>
 ${userObj.name}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Change Password</a></li>
-            <li><a class="dropdown-item" href="../UserLogout">Log out</a></li>
+            <li><a class="dropdown-item" href="../UserLogout"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
             
           </ul>
         </li>
