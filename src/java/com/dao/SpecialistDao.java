@@ -6,6 +6,7 @@ package com.dao;
 
 import com.entity.*;
 import java.sql.*;
+import java.util.*;
 
 /**
  *
@@ -39,6 +40,30 @@ public class SpecialistDao {
         }
 
         return f;
+    }
+
+    public List<Specialist> getAllSpecialist() {
+        List<Specialist> list = new ArrayList<Specialist>();
+        Specialist s = null;
+        try {
+            String q = "SELECT * FROM hospital.specialist ORDER BY specialistName";
+            PreparedStatement stmt = con.prepareStatement(q);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                s = new Specialist();
+                s.setId(rs.getInt(1));
+                s.setSpecialistName(rs.getString(2));
+                list.add(s);
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("Erron in com.dao.SpecialistDao.java->getAllSpecialist()");
+            e.printStackTrace();
+        }
+
+        return list;
     }
 
 }

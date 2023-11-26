@@ -24,6 +24,10 @@
         <servlet-name>AddSpecialist</servlet-name>
         <servlet-class>com.admin.servlet.AddSpecialist</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddDoctor</servlet-name>
+        <servlet-class>com.admin.servlet.AddDoctor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserRegister</servlet-name>
         <url-pattern>/UserRegister</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>AddSpecialist</servlet-name>
         <url-pattern>/AddSpecialist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddDoctor</servlet-name>
+        <url-pattern>/AddDoctor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
