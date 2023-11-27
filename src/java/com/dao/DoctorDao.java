@@ -8,10 +8,6 @@ import java.util.*;
 import java.sql.*;
 import com.entity.Doctor;
 
-/**
- *
- * @author ritik
- */
 public class DoctorDao {
 
     private Connection con;
@@ -68,9 +64,83 @@ public class DoctorDao {
             }
 
         } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->getAllDoctor");
+            e.printStackTrace();
         }
 
         return list;
+    }
+
+    public Doctor getDoctorById(int id) {
+
+        Doctor doctor = null;
+        try {
+            String q = "SELECT * FROM hospital.doctor WHERE ID=?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                doctor = new Doctor();
+                doctor.setId(rs.getInt(1));
+                doctor.setName(rs.getString(2));
+                doctor.setDob(rs.getString(3));
+                doctor.setQualification(rs.getString(4));
+                doctor.setSpecialization(rs.getString(5));
+                doctor.setEmail(rs.getString(6));
+                doctor.setPhone(rs.getString(7));
+                doctor.setPassword(rs.getString(8));
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->getDoctorById");
+            e.printStackTrace();
+        }
+
+        return doctor;
+    }
+
+    public boolean editDoctor(Doctor doctor) {
+        boolean f = false;
+
+        try {
+
+            String q = "UPDATE hospital.doctor SET name=?, dob=?, qualification=?, specialization=?, email=?, phone=?, password=? WHERE id = ?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setString(1, doctor.getName());
+            ps.setString(2, doctor.getDob());
+            ps.setString(3, doctor.getQualification());
+            ps.setString(4, doctor.getSpecialization());
+            ps.setString(5, doctor.getEmail());
+            ps.setString(6, doctor.getPhone());
+            ps.setString(7, doctor.getPassword());
+            ps.setInt(8, doctor.getId());
+
+            if (ps.executeUpdate() == 1) {
+                f = true;
+
+            }
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->registerDoctor");
+            e.printStackTrace();
+        }
+        return f;
+    }
+
+    public boolean deleteDoctorById(int id) {
+        boolean f = false;
+        try {
+            String q = "DELETE FROM hospital.doctor WHERE id = ?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setInt(1, id);
+            if (ps.executeUpdate() == 1) {
+                f = true;
+            }
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->deleteDoctorById");
+            e.printStackTrace();
+        }
+        return f;
     }
 
 }

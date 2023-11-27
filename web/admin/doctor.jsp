@@ -104,6 +104,9 @@
               </div>
             </div>
 
+
+          
+    <!--Doctors Details List-->
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
@@ -130,7 +133,7 @@
                                 <%
                                 DoctorDao dao2 = new DoctorDao(ConnectionProvider.getConnection());
                                 List<Doctor> list2 = dao2.getAllDoctor();
-                                for(Doctor i:list2){
+                                for(Doctor i:list2){ 
                                 %>
                                 <tr>
 
@@ -141,8 +144,8 @@
                                     <td><%=i.getEmail() %></td>
                                     <td><%=i.getPhone() %></td>
                                     <td>
-                                        <a href="#" class="btn btn-sm btn-success">Edit</a>
-                                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                        <a href="editDoctor.jsp?id=<%=i.getId() %>" class="btn btn-sm btn-success">Edit</a>
+                                        <a href="../DeleteDoctor?id=<%=i.getId() %>" class="btn btn-sm btn-danger">Delete</a>
                                     </td>
 
                                 </tr>

@@ -28,6 +28,14 @@
         <servlet-name>AddDoctor</servlet-name>
         <servlet-class>com.admin.servlet.AddDoctor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditDoctor</servlet-name>
+        <servlet-class>com.admin.servlet.EditDoctor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteDoctor</servlet-name>
+        <servlet-class>com.admin.servlet.DeleteDoctor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserRegister</servlet-name>
         <url-pattern>/UserRegister</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>AddDoctor</servlet-name>
         <url-pattern>/AddDoctor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditDoctor</servlet-name>
+        <url-pattern>/EditDoctor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteDoctor</servlet-name>
+        <url-pattern>/DeleteDoctor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
