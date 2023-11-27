@@ -143,4 +143,35 @@ public class DoctorDao {
         return f;
     }
 
+    public Doctor doctorLogin(String email, String password) {
+        Doctor doctor = null;
+
+        try {
+
+            String q = "SELECT * FROM hospital.doctor WHERE email=? AND password = ?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setString(1, email);
+            ps.setString(2, password);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                doctor = new Doctor();
+                doctor.setId(rs.getInt(1));
+                doctor.setName(rs.getString(2));
+                doctor.setDob(rs.getString(3));
+                doctor.setQualification(rs.getString(4));
+                doctor.setSpecialization(rs.getString(5));
+                doctor.setEmail(rs.getString(6));
+                doctor.setPhone(rs.getString(7));
+                doctor.setPassword(rs.getString(8));
+            }
+
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->doctorLogin");
+            e.printStackTrace();
+        }
+
+        return doctor;
+    }
+
 }

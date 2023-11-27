@@ -36,6 +36,14 @@
         <servlet-name>DeleteDoctor</servlet-name>
         <servlet-class>com.admin.servlet.DeleteDoctor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DoctorLogin</servlet-name>
+        <servlet-class>com.doctor.servlet.DoctorLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DoctorLogout</servlet-name>
+        <servlet-class>com.doctor.servlet.DoctorLogout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserRegister</servlet-name>
         <url-pattern>/UserRegister</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>DeleteDoctor</servlet-name>
         <url-pattern>/DeleteDoctor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DoctorLogin</servlet-name>
+        <url-pattern>/DoctorLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DoctorLogout</servlet-name>
+        <url-pattern>/DoctorLogout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
