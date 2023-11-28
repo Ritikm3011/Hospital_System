@@ -118,7 +118,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Name</th>
-                                    <th scope="col">D.O.B</th>
+<!--  d.o.b is disable               <th scope="col">D.O.B</th>-->
                                     <th scope="col">Qualification</th>
                                     <th scope="col">Specialization</th>
                                     <th scope="col">Email</th>
@@ -138,7 +138,7 @@
                                 <tr>
 
                                     <td><%=i.getName() %></td>
-                                    <td><%=i.getDob() %></td>
+<!-- d.o.b is disable                <td><%=i.getDob() %></td> -->
                                     <td><%=i.getQualification() %></td>
                                     <td><%=i.getSpecialization() %></td>
                                     <td><%=i.getEmail() %></td>

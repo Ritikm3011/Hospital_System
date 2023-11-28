@@ -8,11 +8,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="admin_login.jsp"><i class="fa-solid fa-user-nurse"></i> Appointment</a>
+          <a class="nav-link active" aria-current="page" href="user_appointment.jsp"><i class="fa-solid fa-user-nurse"></i> Appointment</a>
         </li>
         
          <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="doctor_login.jsp"><i class="fa-solid fa-user-doctor"></i> View Appointment</a>
+          <a class="nav-link active" aria-current="page" href="view_appointment.jsp"><i class="fa-solid fa-user-doctor"></i> View Appointment</a>
         </li>
         
         

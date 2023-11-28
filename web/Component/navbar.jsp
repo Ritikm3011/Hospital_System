@@ -16,7 +16,8 @@
         </li>
         
          <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-receipt"></i> Appointment</a>
+          <a class="nav-link active" aria-current="page" href="user/user_appointment.jsp"><i class="fa-solid fa-receipt"></i> Appointment</a>
+          
         </li>
         
          <li class="nav-item">

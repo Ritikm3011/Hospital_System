@@ -7,13 +7,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>User_Index</title>
+        <title>User_Home</title>
 
         <%@include file="../Component/allcss.jsp"%>
     </head>
     <body>
         <!--nav bar-->
-        <%@include file="navbar.jsp" %>
+        <%@include file="userNavbar.jsp" %>
 
 
         <h1>Loged in</h1>
