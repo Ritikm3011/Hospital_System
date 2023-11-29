@@ -4,8 +4,10 @@
  */
 package com.dao;
 
+import com.entity.Appointment;
 import com.entity.User;
 import java.sql.*;
+import java.util.*;
 
 /**
  *

@@ -12,7 +12,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="doctor_login.jsp"><i class="fa-solid fa-user-doctor"></i> Doctor</a>
+                    <a class="nav-link active" aria-current="page" href="doctor.jsp"><i class="fa-solid fa-user-doctor"></i> Doctor</a>
                 </li>
 
                 <li class="nav-item">
