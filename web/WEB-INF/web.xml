@@ -48,6 +48,10 @@
         <servlet-name>UserAppointment</servlet-name>
         <servlet-class>com.user.servlet.UserAppointment</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateStatus</servlet-name>
+        <servlet-class>com.doctor.servlet.UpdateStatus</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserRegister</servlet-name>
         <url-pattern>/UserRegister</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>UserAppointment</servlet-name>
         <url-pattern>/UserAppointment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStatus</servlet-name>
+        <url-pattern>/UpdateStatus</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

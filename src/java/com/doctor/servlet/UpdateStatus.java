@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.doctor.servlet;
+
+import com.dao.AppointmentDao;
+import com.db.ConnectionProvider;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,25 +15,30 @@ import javax.servlet.http.HttpSession;
  *
  * @author ritik
  */
-public class DoctorLogout extends HttpServlet {
+public class UpdateStatus extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+
+            int id = Integer.parseInt(request.getParameter("userId"));
+            int doctorId = Integer.parseInt(request.getParameter("doctorId"));
+            String comment = request.getParameter("comment");
+
+            AppointmentDao appDao = new AppointmentDao(ConnectionProvider.getConnection());
+            
             HttpSession session = request.getSession();
-            session.removeAttribute("doctorObj");
-            session.setAttribute("successMsg", "Doctor Logout Successfully.");
-            response.sendRedirect("doctor_login.jsp");
+            
+             if (appDao.updateStatus(id, doctorId, comment)) {
+                 session.setAttribute("successMsg", "Status Updated Successfully.");
+                response.sendRedirect("doctor/patients.jsp");
+            } else {
+                session.setAttribute("failMsg", "Failed to Updated Status");
+                response.sendRedirect("doctor/patients.jsp");
+
+            }
+
         }
     }
 

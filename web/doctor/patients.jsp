@@ -69,7 +69,7 @@
                                         <th scope="col">Email Address</th>
                                         <th scope="col">Phone No.</th>
                                         <th scope="col">Symptoms/Disease</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Status/Comment</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -93,12 +93,24 @@
                                         <td><%=app.getSymptom()%></td>
                                         <td><%=app.getStatus()%></td>
                                         <td>
-                                            <a href="#" class="btn btn-outline-success btn-sm"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+                                            <%
+                                                if ("Pending".equals(app.getStatus())) {
+                                            %>
+                                            <a href="comment.jsp?id=<%=app.getId()%>" class="btn btn-outline-warning btn-sm"><i class="fa-solid fa-arrow-right-to-bracket"></i> Comment</a>
+                                            <%
+                                            } else {
+                                            %>
+                                            <a href="#" class="btn btn-outline-success btn-sm "><i class="fa-regular fa-circle-check"></i> Visited</a>
+
+                                            <%
+                                                }
+
+                                            %>
+
                                         </td>
 
                                     </tr>
-                                    <%
-                                        }
+                                    <%                                        }
                                     %>
 
 

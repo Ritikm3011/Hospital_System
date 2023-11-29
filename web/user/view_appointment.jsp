@@ -37,9 +37,9 @@
         <%@include file="userNavbar.jsp" %>
 
         <!--Picture-->
-        <div class="container-fluid p-2">
+        <div class="container-fluid p-3">
             <div class="row">
-                <div class="col-md-10 offset-md-1">
+                <div class="col-md-12 ">
                     <div class="card shadow ">
                         <div class="card-header">
                             <h1 class="display-5 text-center">Appointment List</h1>
@@ -56,7 +56,7 @@
                                         <th scope="col">Appointment date</th>
                                         <th scope="col">Symptom/Disease</th>
                                         <th scope="col">Doctor's Name</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Status/Comment</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -80,34 +80,33 @@
                                         <td><%=app.getAppointmentDate()%></td>
                                         <td><%=app.getSymptom()%></td>
                                         <td><%=doctor.getName()%></td>
-                                        <td>
-                                            <%
-                                                if ("Pending".equals(app.getStatus())) {
-                                            %>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa-regular fa-clock"></i> Pending</a>
-                                            <%
-                                                } else if ("Accepted".equals(app.getStatus())) {
-                                                %>
-                                                 <a href="#" class="btn btn-sm btn-success"><i class="fa-regular fa-circle-check"></i> Accepted</a>
-                                                <%
 
-                                                }  else if ("Rejected".equals(app.getStatus())) {
-                                                %>
-                                                 <a href="#" class="btn btn-sm btn-danger"><i class="fa-regular fa-circle-xmark"></i> Rejected</a>
-                                                <%
+                                        <!--Status/Comment-->
+                                        <%
+                                            if ("Pending".equals(app.getStatus())) {
+                                        %>
+                                        <td>  <a href="#" class="btn btn-sm btn-warning"><i class="fa-regular fa-clock"></i> Pending</a>  </td>
+                                        <%
+                                        } else if ("Accepted".equals(app.getStatus())) {
+                                        %>
+                                        <td>  <a href="#" class="btn btn-sm btn-success"><i class="fa-regular fa-circle-check"></i> Accepted</a>  </td>
+                                        <%
+                                        } else if ("Rejected".equals(app.getStatus())) {
+                                        %>
+                                        <td>   <a href="#" class="btn btn-sm btn-danger"><i class="fa-regular fa-circle-xmark"></i> Rejected</a>  </td>
+                                        <%
+                                        } else {
+                                        %>
+                                        <td><%=app.getStatus()%></td>
+                                        <%
+                                            }
+                                        %>
 
-                                                }
-                                            %>
-
-                                        </td>
 
                                     </tr>
                                     <%
                                         }
                                     %>
-
-
-
 
                                 </tbody>
                             </table>
@@ -121,17 +120,8 @@
 
 
 
-                <!--User Appointment form-->
-                <!--            <div class="col-md-2">
-                              rtwert
-                            </div>
-                          </div>
-                        </div>-->
-
-
-
                 <!--footer-->
-                
+
                 <%@include file="../Component/footer.jsp" %>
                 </body>
 

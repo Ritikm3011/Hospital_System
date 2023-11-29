@@ -130,4 +130,67 @@ public class AppointmentDao {
         return list;
     }
 
+    public Appointment getAppointmentById(int id) {  //by Appointment id
+       
+        Appointment app = null;
+
+        try {
+            String q = "SELECT * FROM hospital.appointment WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                app = new Appointment();
+
+                app.setId(rs.getInt(1));
+                app.setUserId(rs.getInt(2));
+                app.setName(rs.getString(3));
+                app.setGender(rs.getString(4));
+                app.setAge(rs.getInt(5));
+                app.setAppointmentDate(rs.getString(6));
+                app.setEmail(rs.getString(7));
+                app.setPhone(rs.getString(8));
+                app.setSymptom(rs.getString(9));
+                app.setDoctorId(rs.getInt(10));
+                app.setAddress(rs.getString(11));
+                app.setStatus(rs.getString(12));
+
+                
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error in com.dao.UserDao->getAllAppointmentById");
+            e.printStackTrace();
+        }
+
+        return app;
+    }
+    
+    public boolean updateStatus(int id,int doctorId, String comment){ // By appointment Id
+        boolean f = false;
+        
+        try {
+            String q = "UPDATE hospital.appointment SET status=? WHERE id=? AND doctorId = ?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setString(1, comment);
+            ps.setInt(2, id);
+            ps.setInt(3,doctorId);
+            
+            if(ps.executeUpdate() == 1) {
+                f = true;
+            }
+            
+            
+        } catch (Exception e) {
+             System.out.println("Error in com.dao.UserDao->updateStatus");
+            e.printStackTrace();
+        }
+            
+        
+        return f;
+    }
+
 }
