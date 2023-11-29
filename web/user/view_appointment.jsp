@@ -27,7 +27,7 @@
     </head>
 
     <body>
-        <!--if admin is not login-->
+        <!--if user is not login-->
         <c:if test="${empty userObj}">
             <c:redirect url="../user_login.jsp"></c:redirect>
         </c:if>
@@ -40,7 +40,7 @@
         <div class="container-fluid p-2">
             <div class="row">
                 <div class="col-md-10 offset-md-1">
-                    <div class="card shadow">
+                    <div class="card shadow ">
                         <div class="card-header">
                             <h1 class="display-5 text-center">Appointment List</h1>
                         </div>
@@ -131,7 +131,7 @@
 
 
                 <!--footer-->
-                <br>
+                
                 <%@include file="../Component/footer.jsp" %>
                 </body>
 

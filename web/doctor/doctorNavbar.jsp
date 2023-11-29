@@ -11,11 +11,11 @@
         
       
          <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-receipt"></i> Appointment</a>
+             <a class="nav-link active" aria-current="page" href="index.jsp"><i class="fa-solid fa-receipt"></i> Home</a>
         </li>
         
          <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="user_login.jsp"><i class="fa-solid fa-hospital-user"></i> Patients</a>
+          <a class="nav-link active" aria-current="page" href="patients.jsp"><i class="fa-solid fa-hospital-user"></i> Patients</a>
         </li>
        
         <li class="nav-item dropdown">
