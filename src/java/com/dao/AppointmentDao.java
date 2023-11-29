@@ -6,6 +6,8 @@ package com.dao;
 
 import java.sql.*;
 import com.entity.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -48,6 +50,45 @@ public class AppointmentDao {
         }
 
         return f;
+    }
+
+    public List<Appointment> getAllAppointmentByUserId(int userId) {
+        List<Appointment> list = new ArrayList<Appointment>();
+        Appointment app = null;
+
+        try {
+            String q = "SELECT * FROM hospital.appointment WHERE userId=?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setInt(1, userId);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                app = new Appointment();
+
+                app.setId(rs.getInt(1));
+                app.setUserId(rs.getInt(2));
+                app.setName(rs.getString(3));
+                app.setGender(rs.getString(4));
+                app.setAge(rs.getInt(5));
+                app.setAppointmentDate(rs.getString(6));
+                app.setEmail(rs.getString(7));
+                app.setPhone(rs.getString(8));
+                app.setSymptom(rs.getString(9));
+                app.setDoctorId(rs.getInt(10));
+                app.setAddress(rs.getString(11));
+                app.setStatus(rs.getString(12));
+
+                list.add(app);
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error in com.dao.UserDao->getAllAppointmentByUserId");
+            e.printStackTrace();
+        }
+
+        return list;
     }
 
 }

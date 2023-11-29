@@ -17,10 +17,10 @@
 
 
         <h1>Loged in</h1>
-       
-      
-      
-   
+
+
+
+
         <!--footer-->
         <%@include file="../Component/footer.jsp" %>
     </body>
