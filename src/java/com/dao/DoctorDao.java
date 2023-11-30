@@ -174,4 +174,44 @@ public class DoctorDao {
         return doctor;
     }
 
+    public int countDoctor() {
+        int i = 0;
+        try {
+            String q = "select * from hospital.doctor";
+            PreparedStatement ps = con.prepareStatement(q);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                i++;
+            }
+            
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->countDoctor");
+            e.printStackTrace();
+        }
+        return i;
+    }
+    
+    
+    
+       public int countAppointmentByDoctorId(int doctorId) {
+        int i = 0;
+        try {
+            String q = "select * from hospital.appointment where doctorId = ?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setInt(1, doctorId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                i++;
+            }
+
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->countAppointment");
+            e.printStackTrace();
+        }
+        return i;
+    }
+    
+    
 }

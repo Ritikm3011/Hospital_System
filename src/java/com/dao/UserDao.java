@@ -74,5 +74,24 @@ public class UserDao {
         return user;
 
     }
+    
+    
+    public int countUser() {
+        int i = 0;
+        try {
+            String q = "select * from hospital.user";
+            PreparedStatement ps = con.prepareStatement(q);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                i++;
+            }
+            
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->countDoctor");
+            e.printStackTrace();
+        }
+        return i;
+    }
 
 }

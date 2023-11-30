@@ -3,6 +3,8 @@
     Created on : 08-Nov-2023, 5:57:49 pm
     Author     : Ritik Mondal
 --%>
+<%@page import="com.db.ConnectionProvider"%>
+<%@page import="com.dao.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -43,17 +45,25 @@
                 <p class="text-center text-danger " >${failMsg}</p>
                 <c:remove var="failMsg" scope="session"/>
             </c:if>
-
+                <%
+                    
+                    DoctorDao doctorDao = new DoctorDao(ConnectionProvider.getConnection());
+                    AppointmentDao appointmentDao = new AppointmentDao(ConnectionProvider.getConnection());
+                    SpecialistDao specialistDao = new SpecialistDao(ConnectionProvider.getConnection());
+                    UserDao userDao = new UserDao(ConnectionProvider.getConnection());
+                    
+                    
+                    %>
 
             <div class="row">
 
                 <div class="col-md-4 ">
-                    <div class="card border-light  ">
+                    <div class="card border-light">
                         <div class="card-body text-center text-success shadow">
                             <i class="fa-solid fa-user-doctor fa-3x"></i>
-                            <p class="text-center display-5">Doctor</p>
-                            <br>
-                            5
+                            <h5 class="text-center display-5">Doctor</h5>
+                            
+                            <h4><%=doctorDao.countDoctor() %></h4>  
                         </div>
                     </div>
                 </div>
@@ -62,9 +72,9 @@
                     <div class="card border-light ">
                         <div class="card-body text-center text-success shadow">
                             <i class="fa-solid fa-hospital-user fa-3x"></i>
-                            <p class="text-center display-5">User</p>
-                            <br>
-                            43
+                            <h5 class="text-center display-5">User</h5>
+                            
+                            <h4><%=userDao.countUser()%></h4>  
                         </div>
                     </div>
                 </div>
@@ -74,9 +84,9 @@
                     <div class="card border-light ">
                         <div class="card-body text-center text-success shadow">
                             <i class="fa-regular fa-calendar-check fa-3x"></i>
-                            <p class="text-center display-5">Appointment</p>
-                            <br>
-                            451
+                            <h5 class="text-center display-5">Appointment</h5>
+                            
+                           <h4><%=appointmentDao.countAppointment() %></h4> 
                         </div>
                     </div>
                 </div>
@@ -86,9 +96,9 @@
                     <div class="card border-light ">
                         <div class="card-body text-center text-success shadow">
                             <i class="fa-solid fa-suitcase-medical fa-3x"></i>
-                            <p class="text-center display-5">Specialist</p>
-                            <br>
-                            34
+                            <h5 class="text-center display-5">Specialist</h5>
+                           
+                            <h4><%=specialistDao.countSpecialist()%></h4> 
                         </div>
                     </div>
                 </div>
