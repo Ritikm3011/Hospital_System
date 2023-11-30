@@ -107,7 +107,7 @@ public class UserDao {
             }
 
         } catch (Exception e) {
-            System.out.println("error in com.dao.DoctorDao->checkOldPasswod");
+            System.out.println("error in com.dao.UserDao->checkOldPasswod");
             e.printStackTrace();
         }
 
@@ -127,13 +127,10 @@ public class UserDao {
 
             }
 
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                f = true;
-            }
+           
 
         } catch (Exception e) {
-            System.out.println("error in com.dao.DoctorDao->checkOldPasswod");
+            System.out.println("error in com.dao.UserDao->checkOldPasswod");
             e.printStackTrace();
         }
 
