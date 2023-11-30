@@ -1,11 +1,15 @@
 
+<%@page import="com.entity.Doctor"%>
+<%@page import="com.dao.AppointmentDao"%>
+<%@page import="com.dao.DoctorDao"%>
+<%@page import="com.db.ConnectionProvider"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>admin_index</title>
+        <title>Doctor_Home</title>
         <%@include file="../Component/allcss.jsp" %>
     </head>
     <body>
@@ -24,27 +28,38 @@
 
         <div class="container p-5 text-center " >
             <h1 class="display-5 text-center mb-4 pb-1">Doctor Dashboard</h1>
-            
+            <%
+                Doctor doctor = (Doctor) session.getAttribute("doctorObj");
+                DoctorDao doctorDao = new DoctorDao(ConnectionProvider.getConnection());
+            %>
             <div class="row text-success ">
-                
+
                 <div class="col-md-4 offset-md-2 ">
-                    <div class="card shadow ">
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="fa-solid fa-user-doctor fa-3x"></i></h5>
-                            <h5 class="card-text">Doctor</h5>
-                            <br>5
-                           
+                    <div class="card border-light">
+                        <div class="card-body text-center text-success shadow">
+                            <h5 class="card-title">
+                                <i class="fa-solid fa-user-doctor fa-3x"></i>
+                            </h5>
+                            <h5 class="text-center display-5">Doctor</h5>
+
+                            <h4><%=doctorDao.countDoctor()%></h4>  
+
                         </div>
                     </div>
                 </div>
-                
-                 <div class="col-md-4 ">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="fa-solid fa-receipt fa-3x"></i></i></h5>
-                            <h5 class="card-text">Appointments</h5>
-                            <br>14
-                           
+
+                <div class="col-md-4 ">
+                    <div class="card border-light">
+                        <div class="card-body text-center text-success shadow">
+                            <h5 class="card-title">
+                                <i class="fa-solid fa-receipt fa-3x"></i></i>
+                            </h5>
+                            <h5 class="card-text display-5">Appointments</h5>
+
+                            <h4>
+                                <%=doctorDao.countAppointmentByDoctorId(doctor.getId())%>
+                            </h4>  
+
                         </div>
                     </div>
                 </div>

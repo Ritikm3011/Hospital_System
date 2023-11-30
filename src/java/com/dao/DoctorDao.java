@@ -174,4 +174,117 @@ public class DoctorDao {
         return doctor;
     }
 
+    public int countDoctor() {
+        int i = 0;
+        try {
+            String q = "select * from hospital.doctor";
+            PreparedStatement ps = con.prepareStatement(q);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                i++;
+            }
+
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->countDoctor");
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    public int countAppointmentByDoctorId(int doctorId) {
+        int i = 0;
+        try {
+            String q = "select * from hospital.appointment where doctorId = ?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setInt(1, doctorId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                i++;
+            }
+
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->countAppointment");
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    public boolean editDoctorProfile(Doctor doctor) {
+        boolean f = false;
+
+        try {
+
+            String q = "UPDATE hospital.doctor SET name=?, dob=?, qualification=?, specialization=?, email=?, phone=?  where id =?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setString(1, doctor.getName());
+            ps.setString(2, doctor.getDob());
+            ps.setString(3, doctor.getQualification());
+            ps.setString(4, doctor.getSpecialization());
+            ps.setString(5, doctor.getEmail());
+            ps.setString(6, doctor.getPhone());
+
+            ps.setInt(7, doctor.getId());
+
+            if (ps.executeUpdate() == 1) {
+                f = true;
+
+            }
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->public boolean editDoctorProfile(Doctor doctor)");
+            e.printStackTrace();
+        }
+        return f;
+    }
+    
+     public boolean checkOldPasswod(int doctorId, String oldPassword) {
+        boolean f = false;
+        try {
+            String q = "SELECT * FROM hospital.doctor WHERE id=? AND password = ?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setInt(1, doctorId);
+            ps.setString(2, oldPassword);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                f = true;
+            }
+
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->checkOldPasswod");
+            e.printStackTrace();
+        }
+
+        return f;
+    }
+    
+    
+    public boolean changePasswod(int doctorId, String newPassword) {
+        boolean f = false;
+        try {
+            String q = "UPDATE hospital.doctor SET password = ? WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setString(1, newPassword);
+            ps.setInt(2, doctorId);
+
+            if (ps.executeUpdate() == 1) {
+                f = true;
+
+            }
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                f = true;
+            }
+
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->checkOldPasswod");
+            e.printStackTrace();
+        }
+
+        return f;
+    }
+
+
 }

@@ -23,7 +23,8 @@
 ${doctorObj.name}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="editProfile.jsp">Profile</a></li>
+              <li><a class="dropdown-item" href="changePassword.jsp">Change Password </a></li>
             <li><a class="dropdown-item" href="../DoctorLogout"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
 
           </ul>

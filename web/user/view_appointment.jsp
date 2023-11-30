@@ -35,9 +35,9 @@
 
         <!--nav bar-->
         <%@include file="userNavbar.jsp" %>
-
+        <br>
         <!--Picture-->
-        <div class="container-fluid p-3">
+        <div class="container-fluid pt-2">
             <div class="row">
                 <div class="col-md-12 ">
                     <div class="card shadow ">
@@ -119,10 +119,15 @@
                 </div>
 
 
+            </div>
 
-                <!--footer-->
+        </div>
 
-                <%@include file="../Component/footer.jsp" %>
-                </body>
 
-                </html>
+
+        <!--footer-->
+        <br>
+        <%@include file="../Component/footer.jsp" %>
+    </body>
+
+</html>

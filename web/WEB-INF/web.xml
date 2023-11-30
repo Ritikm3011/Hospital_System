@@ -52,6 +52,18 @@
         <servlet-name>UpdateStatus</servlet-name>
         <servlet-class>com.doctor.servlet.UpdateStatus</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChangePassword</servlet-name>
+        <servlet-class>com.user.servlet.ChangePassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProfile</servlet-name>
+        <servlet-class>com.doctor.servlet.EditProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangeDoctorPassword</servlet-name>
+        <servlet-class>com.doctor.servlet.ChangeDoctorPassword</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserRegister</servlet-name>
         <url-pattern>/UserRegister</url-pattern>
@@ -103,6 +115,18 @@
     <servlet-mapping>
         <servlet-name>UpdateStatus</servlet-name>
         <url-pattern>/UpdateStatus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePassword</servlet-name>
+        <url-pattern>/ChangePassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProfile</servlet-name>
+        <url-pattern>/EditProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangeDoctorPassword</servlet-name>
+        <url-pattern>/ChangeDoctorPassword</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

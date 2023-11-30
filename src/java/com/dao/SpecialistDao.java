@@ -65,5 +65,24 @@ public class SpecialistDao {
 
         return list;
     }
+    
+    
+    public int countSpecialist() {
+        int i = 0;
+        try {
+            String q = "select * from hospital.specialist";
+            PreparedStatement ps = con.prepareStatement(q);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                i++;
+            }
+            
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->countDoctor");
+            e.printStackTrace();
+        }
+        return i;
+    }
 
 }
