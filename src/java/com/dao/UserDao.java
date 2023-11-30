@@ -74,24 +74,70 @@ public class UserDao {
         return user;
 
     }
-    
-    
+
     public int countUser() {
         int i = 0;
         try {
             String q = "select * from hospital.user";
             PreparedStatement ps = con.prepareStatement(q);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next()) {
+
+            while (rs.next()) {
                 i++;
             }
-            
+
         } catch (Exception e) {
             System.out.println("error in com.dao.DoctorDao->countDoctor");
             e.printStackTrace();
         }
         return i;
+    }
+
+    public boolean checkOldPasswod(int userId, String oldPassword) {
+        boolean f = false;
+        try {
+            String q = "SELECT * FROM hospital.user WHERE id=? AND password = ?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setInt(1, userId);
+            ps.setString(2, oldPassword);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                f = true;
+            }
+
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->checkOldPasswod");
+            e.printStackTrace();
+        }
+
+        return f;
+    }
+
+    public boolean changePasswod(int userId, String newPassword) {
+        boolean f = false;
+        try {
+            String q = "UPDATE hospital.user SET password = ? WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(q);
+            ps.setString(1, newPassword);
+            ps.setInt(2, userId);
+
+            if (ps.executeUpdate() == 1) {
+                f = true;
+
+            }
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                f = true;
+            }
+
+        } catch (Exception e) {
+            System.out.println("error in com.dao.DoctorDao->checkOldPasswod");
+            e.printStackTrace();
+        }
+
+        return f;
     }
 
 }

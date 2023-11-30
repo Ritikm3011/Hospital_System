@@ -16,7 +16,7 @@
         <%@include file="userNavbar.jsp" %>
 
 
-        <h1>Loged in</h1>
+        <h1>User Login</h1>
 
 
 
